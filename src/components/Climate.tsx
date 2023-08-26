@@ -97,7 +97,7 @@ export function Climate() {
     return (
 
             <div className="flex justify-center items-center w-full">
-            <div className="bg-white rounded-lg shadow-md p-6 lg:w-1/3 ">
+            <div className="bg-white rounded-lg shadow-md p-6 xl:w-1/3 ">
                 <div className="flex justify-between">
                     <div className="w-1/2">
                         <h2 className="text-3xl font-bold mb-4">{cityName}</h2>
@@ -109,7 +109,7 @@ export function Climate() {
                         <div className="w-32">
                             {weatherCondition === 'clear' ? <Sun /> : weatherCondition === 'rain' ? <Image src={rain} alt="Rain" /> : <Image src={weather} alt="Cloud and Sun" />}
                         </div>
-                        <p className="text-2xl">{temperature} °C</p>
+                        <p className="text-md xl:text-xl 2xl:text-2xl">{temperature} °C</p>
                     </div>
                 </div>
                 <div className="text-xs text-center mt-5"><span >Os dados são atualizados a cada 5 minutos.</span></div>

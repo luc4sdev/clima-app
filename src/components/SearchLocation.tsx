@@ -9,30 +9,46 @@ export function SearchLocation() {
 
     const [street, setStreet] = useState<string>('')
     const [addresses, setAddresses] = useState<Address[]>([]);
+    const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
 
-
-    useEffect(() => {
-        const fetchAddresses = async () => {
-            try {
-                const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${street}&format=json`);
-                const data: Address[] = await response.json();
-                setAddresses(data);
-            } catch (error) {
-                console.error('Error searching addresses:', error);
-            }
-        };
-
-        if (street.length >= 3) {
-            fetchAddresses();
-        } else {
-            setAddresses([]);
+    const fetchAddresses = async () => {
+        try {
+          const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${street}&format=json`);
+          const data: Address[] = await response.json();
+          setAddresses(data);
+        } catch (error) {
+          console.error('Error searching addresses:', error);
         }
-    }, [street]);
+      };
+      
+      useEffect(() => {
+        if (street.length >= 3) {
+          if (timer) {
+            clearTimeout(timer);
+          }
+
+          const newTimer = setTimeout(() => {
+            fetchAddresses();
+          }, 500); 
+          setTimer(newTimer);
+        } else {
+          setAddresses([]);
+        }
+      
+        return () => {
+          if (timer) {
+            clearTimeout(timer);
+          }
+        };
+      }, [street]);
 
 
     return (
         <div className="flex justify-center items-center w-full">
             <div className="bg-white rounded-lg shadow-md p-6 lg:w-1/3 flex flex-col justify-center">
+              <div className="flex justify-center items-center mb-5">
+              <h1 className="text-2xl font-bold">Buscar Endereço</h1>
+              </div>
                 <h1 className="text-xl font-semibold mb-4">Insira a rua:</h1>
                 <input
                     type="text"
