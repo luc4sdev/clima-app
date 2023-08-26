@@ -57,7 +57,7 @@ O projeto está desenvolvido utilizando as seguintes tecnologias:
 
 - ReactJS <img width="20px" height="20px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
 - NextJS <img width="20px" height="20px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" />
-- TilwindCSS
+- TailwindCSS
 - APIRest
 --- 
 
