@@ -10,7 +10,6 @@ export function Header() {
             <h1 className="text-xl text-gray-950 hover:text-yellow-400">ClimaApp</h1>
             </div>
             </Link>
-        
         </div>
     )
 }
