@@ -1,5 +1,6 @@
 "use client"
-import { useEffect, useState } from "react";
+import { ThemeContext } from "@/contexts/theme-context";
+import { useEffect, useState, useContext } from "react";
 
 interface Address {
     display_name: string;
@@ -10,6 +11,9 @@ export function SearchLocation() {
     const [street, setStreet] = useState<string>('')
     const [addresses, setAddresses] = useState<Address[]>([]);
     const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
+
+    const { newTheme } = useContext(ThemeContext);
+
 
     const fetchAddresses = async () => {
         try {
@@ -45,14 +49,14 @@ export function SearchLocation() {
 
     return (
         <div className="flex justify-center items-center w-full">
-            <div className="bg-white rounded-lg shadow-md p-6 lg:w-1/3 flex flex-col justify-center">
+            <div className={`bg-white rounded-lg shadow-md p-6 lg:w-1/3 flex flex-col justify-center ${newTheme === 'dark' ? 'bg-gray-800 text-gray-50' : ''}`}>
               <div className="flex justify-center items-center mb-5">
               <h1 className="text-2xl font-bold">Buscar Endereço</h1>
               </div>
                 <h1 className="text-xl font-semibold mb-4">Insira a rua:</h1>
                 <input
                     type="text"
-                    className="border rounded-lg p-2 focus:outline-none focus:border-blue-400"
+                    className={`border rounded-lg p-2 focus:outline-none focus:border-blue-400 ${newTheme === 'dark' ? 'bg-gray-700' : ''}`}
                     placeholder="Rua Sete de Setembro"
                     value={street}
                     onChange={e => setStreet(e.target.value)}
@@ -61,7 +65,7 @@ export function SearchLocation() {
                 <div className="max-h-60 overflow-y-auto mt-5">
                     <ul className="list-disc pl-6 space-y-2">
                         {addresses.map((address, index) => (
-                            <li key={index} className="text-gray-700">
+                            <li key={index} >
                                 {address.display_name}
                             </li>
                         ))}

@@ -1,11 +1,12 @@
 "use client"
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Sun } from "@/assets/icons/Sun";
 import Image from "next/image";
 import dotenv from 'dotenv';
 
 import weather from '../assets/img/weather.png'
 import rain from '../assets/img/rain.png'
+import { ThemeContext } from "@/contexts/theme-context";
 
 interface WeatherData {
     name: string;
@@ -29,6 +30,9 @@ export function Climate() {
     const [currentDay, setCurrentDay] = useState<string>('');
     const [currentDate, setCurrentDate] = useState<string>('');
     const [locationPermissionDenied, setLocationPermissionDenied] = useState(false);
+
+    const { newTheme } = useContext(ThemeContext);
+
 
     useEffect(() => {
 
@@ -99,7 +103,7 @@ export function Climate() {
     return (
 
             <div className="flex justify-center items-center w-full">
-            <div className="bg-white rounded-lg shadow-md p-6 w-[95%] xl:w-1/3 ">
+            <div className={`bg-white rounded-lg shadow-md p-6 w-[95%] xl:w-1/3 ${newTheme === 'dark' ? 'bg-gray-800 text-gray-50' : ''}`}>
                 <div className="flex justify-between">
                     <div className="w-1/2">
                         <h2 className="text-3xl font-bold mb-4">{cityName}</h2>
