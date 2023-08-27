@@ -43,7 +43,6 @@ export function Climate() {
         const fetchWeatherData = async (position: { coords: { latitude: number; longitude: number; }; }) => {
             setLocationPermissionDenied(false);
             const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
-            console.log(apiKey)
             const { latitude, longitude } = position.coords;
             const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
 
