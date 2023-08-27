@@ -30,7 +30,7 @@ export function Form() {
     };
 
     return (
-        <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
+        <div className="max-w-md mx-auto p-6 bg-white rounded-lg w-[95%] shadow-md">
             <form onSubmit={handleSubmit}>
                 <div className="mb-4">
                     <div className="mb-2 text-center">

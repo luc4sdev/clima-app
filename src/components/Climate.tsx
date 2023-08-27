@@ -97,7 +97,7 @@ export function Climate() {
     return (
 
             <div className="flex justify-center items-center w-full">
-            <div className="bg-white rounded-lg shadow-md p-6 xl:w-1/3 ">
+            <div className="bg-white rounded-lg shadow-md p-6 w-[95%] xl:w-1/3 ">
                 <div className="flex justify-between">
                     <div className="w-1/2">
                         <h2 className="text-3xl font-bold mb-4">{cityName}</h2>
@@ -106,7 +106,7 @@ export function Climate() {
                         <h2 className="text-md font-normal mb-4">Chuva: {rainVolume} mm/h</h2>
                     </div>
                     <div className="flex justify-center items-center w-1/2 gap-5">
-                        <div className="w-32">
+                        <div className="w-20 md:w-32">
                             {weatherCondition === 'clear' ? <Sun /> : weatherCondition === 'rain' ? <Image src={rain} alt="Rain" /> : <Image src={weather} alt="Cloud and Sun" />}
                         </div>
                         <p className="text-md xl:text-xl 2xl:text-2xl">{temperature} °C</p>
