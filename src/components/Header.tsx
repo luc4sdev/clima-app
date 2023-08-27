@@ -43,7 +43,7 @@ export function Header() {
                 <div className={`w-10 h-4 bg-gray-300 rounded-full relative ${newTheme === 'dark' ? 'bg-gray-700' : 'bg-gray-300'}`}>
                     <div className={`w-6 h-6 bg-white rounded-full absolute left-0 -top-1 transform transition-transform duration-300 ${newTheme === 'dark' ? 'translate-x-6' : 'translate-x-0'}`}></div>
                 </div>
-                <span className="ms-5">{newTheme === 'dark' ? <Moon /> : <Sun />}</span>
+                <span className={`ms-5 ${newTheme === 'dark' ? 'text-gray-50' : ''}`}>{newTheme === 'dark' ? <Moon /> : <Sun />}</span>
             </label>
         </div>
     )

@@ -103,7 +103,7 @@ export function Climate() {
     return (
 
             <div className="flex justify-center items-center w-full">
-            <div className={`bg-white rounded-lg shadow-md p-6 w-[95%] xl:w-1/3 ${newTheme === 'dark' ? 'bg-gray-800 text-gray-50' : ''}`}>
+            <div className={` rounded-lg shadow-md p-6 w-[95%] xl:w-1/3 ${newTheme === 'dark' ? 'bg-gray-800 text-gray-50' : 'bg-white'}`}>
                 <div className={`flex justify-between ${newTheme === 'dark' ? 'bg-gray-800' : ''}`}>
                     <div className="w-1/2">
                         <h2 className="text-3xl font-bold mb-4">{cityName}</h2>
