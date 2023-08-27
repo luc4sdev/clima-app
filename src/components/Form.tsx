@@ -36,7 +36,7 @@ export function Form() {
     return (
         <div className={`max-w-md mx-auto p-6 bg-white rounded-lg w-[95%] shadow-md ${newTheme === 'dark' ? 'bg-gray-800 text-gray-50' : ''}`}>
             <form onSubmit={handleSubmit}>
-                <div className="mb-4">
+                <div className={`mb-4 ${newTheme === 'dark' ? 'bg-gray-800' : ''}`}>
                     <div className="mb-2 text-center">
                         <h1 className="text-2xl font-semibold">Contato</h1>
                     </div>

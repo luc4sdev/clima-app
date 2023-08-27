@@ -26,7 +26,7 @@ export function Header() {
             <Link href='/' className="flex items-center">
                 <div className="flex justify-start items-center w-40 gap-2">
                     <Cloud />
-                    <h1 className="text-xl  hover:text-yellow-400">ClimaApp</h1>
+                    <h1 className={`text-xl  hover:text-yellow-400 ${newTheme === 'dark' ? 'text-gray-50' : ''}`}>ClimaApp</h1>
                 </div>
             </Link>
 

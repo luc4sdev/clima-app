@@ -50,7 +50,7 @@ export function SearchLocation() {
     return (
         <div className="flex justify-center items-center w-full">
             <div className={`bg-white rounded-lg shadow-md p-6 lg:w-1/3 flex flex-col justify-center ${newTheme === 'dark' ? 'bg-gray-800 text-gray-50' : ''}`}>
-              <div className="flex justify-center items-center mb-5">
+              <div className={`flex justify-center items-center mb-5 ${newTheme === 'dark' ? 'bg-gray-800' : ''}`}>
               <h1 className="text-2xl font-bold">Buscar Endereço</h1>
               </div>
                 <h1 className="text-xl font-semibold mb-4">Insira a rua:</h1>
