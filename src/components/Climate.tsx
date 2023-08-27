@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { Sun } from "@/assets/icons/Sun";
 import Image from "next/image";
+import dotenv from 'dotenv';
 
 import weather from '../assets/img/weather.png'
 import rain from '../assets/img/rain.png'
@@ -20,6 +21,7 @@ interface WeatherData {
     };
 }
 
+dotenv.config();
 
 export function Climate() {
 
@@ -40,7 +42,8 @@ export function Climate() {
 
         const fetchWeatherData = async (position: { coords: { latitude: number; longitude: number; }; }) => {
             setLocationPermissionDenied(false);
-            const apiKey = '3312cb75504b9a946a5921a3f93d5fb3';
+            const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
+            console.log(apiKey)
             const { latitude, longitude } = position.coords;
             const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
 
